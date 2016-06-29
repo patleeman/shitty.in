@@ -1,12 +1,17 @@
 <% extends "base.html" %>
 
 <% block content %>
-<h1>New York City</h1>
-<h2>Welcome to the big apple</h2>
+<h1>New York Shitty</h1>
+<h2>Welcome to the big crapple</h2>
 
 <div id="app">
-    <p>Current Weather: {{weather.f}}f</p>
-    <p>Transit: {{ transit }}</p>
+    <h2>The current weather's shittiness index is:</h2>
+    <p>{{weather.temp.f}}f</p>
+    <h2>MTA Transit's current shittiness index is:</h2>
+    <p>Overall: {{ transit.total }}% chance of a shitty commute</p>
+    <ul id="transit-breakdown">
+        <li v-for="(service, score) in transit">{{ service }}: {{ score }}% chance of a shitty commute</li>
+    </ul>
 </div>
 <script type="text/javascript" src="%% url_for('static', filename='js/main.js') %%"></script>
 <% endblock %>

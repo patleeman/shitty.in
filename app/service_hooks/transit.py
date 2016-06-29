@@ -1,12 +1,22 @@
+"""
+transit.py
+MTA Service Status
+
+Requests and parses the NYC MTA's service status.  Then calculates the shitty score.
+
+"""
+
 import xmltodict
 import requests
 import datetime
+
 
 class MtaTransit(object):
 
     def __init__(self):
         self.endpoint = "http://web.mta.info/status/serviceStatus.txt"
         self.data = self._get_data()
+        self.scores = self._calculate_score()
 
     def _get_data(self):
         raw_xml_data = requests.get(self.endpoint).text
@@ -15,11 +25,11 @@ class MtaTransit(object):
 
         if int(response_code) == 0:
             payload = {
-                'subway': self._parse_transit(data['service']['subway']),
-                'bus': self._parse_transit(data['service']['bus']),
-                'bt': self._parse_transit(data['service']['BT']),
-                'lirr': self._parse_transit(data['service']['LIRR']),
-                'metronorth': self._parse_transit(data['service']['MetroNorth']),
+                'Subway': self._parse_transit(data['service']['subway']),
+                'Bus': self._parse_transit(data['service']['bus']),
+                'Bridges/Tunnels': self._parse_transit(data['service']['BT']),
+                'LIRR': self._parse_transit(data['service']['LIRR']),
+                'MetroNorth': self._parse_transit(data['service']['MetroNorth']),
                 'timestamp': datetime.datetime.strptime(data['service']['timestamp'], "%m/%d/%Y %I:%M:%S %p")
             }
 
@@ -46,3 +56,48 @@ class MtaTransit(object):
             }
         return transit_payload
 
+    def _calculate_score(self):
+
+        total_scores = {
+            "DELAYS": 0,
+            "GOOD SERVICE": 0,
+            "PLANNED WORK": 0,
+            "SERVICE CHANGE": 0,
+            "OTHER": 0
+        }
+
+        # Count up statuses
+        total_service_scores = {}
+        for service, data in self.data.items():
+            service_scores = {
+                "DELAYS": 0,
+                "GOOD SERVICE": 0,
+                "PLANNED WORK": 0,
+                "SERVICE CHANGE": 0,
+                "OTHER": 0
+            }
+            if not isinstance(data, dict):
+                continue
+
+            for line, line_data in data.items():
+                status = line_data.get('status')
+                if status in total_scores.keys():
+                    total_scores[status] += 1
+                    service_scores[status] += 1
+                else:
+                    total_scores['OTHER'] += 1
+                    service_scores['OTHER'] += 1
+
+            total_service_scores[service] = service_scores
+
+        # Calculate total score
+        score = int(sum([total_scores['DELAYS'], total_scores['PLANNED WORK'], total_scores['SERVICE CHANGE']]) * 100 / sum(total_scores.values()))
+        payload = {
+            'total': score
+        }
+
+        # Calculate individual lines
+        for service, scores in total_service_scores.items():
+            payload[service] = int(sum([scores['DELAYS'], scores['PLANNED WORK'], scores['SERVICE CHANGE']]) * 100 / sum(scores.values()))
+
+        return payload

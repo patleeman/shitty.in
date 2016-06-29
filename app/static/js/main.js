@@ -11,13 +11,18 @@ function get_api_data(){
     return api_data;
 }
 
-initial_data = get_api_data();
-console.log(initial_data);
+api_data = get_api_data();
 var app = new Vue({
   el: '#app',
   data: {
-    weather: initial_data.weather,
-    transit: JSON.stringify(initial_data.transit)
+    weather: api_data.weather,
+    transit: api_data.transit.scores
   }
 });
 
+var transit = Vue.extend({
+  el: '#transit-breakdown',
+  data: {
+    transit: api_data.transit.scores
+  }
+})

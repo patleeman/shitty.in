@@ -25,7 +25,10 @@ def data_endpoint():
                 "f": 75,
                 "c": 24
             }},
-        "transit": transit_data.data,
+        "transit": {
+            "scores": transit_data.scores,
+            "data": transit_data.data
+        },
     }
     return jsonify(payload)
 
