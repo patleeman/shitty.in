@@ -11,7 +11,7 @@ def index():
 @app.route('/data', methods=['GET'])
 def data_endpoint():
     data = {
-        "data": ["One", "Two", "Three"]
+        "data": [{"data": "One"}, {"data": "Two"}, {"data": "Three"}]
     }
     return jsonify(data)
 

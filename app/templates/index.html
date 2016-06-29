@@ -4,15 +4,21 @@
         <link rel="stylesheet" type="text/css" href="static/css/main.css">
         <script type="text/javascript" src="static/vendor/jquery-3.0.0.min.js"></script>
         <script type="text/javascript" src="static/vendor/vue.js"></script>
-        <script type="text/javascript" src="static/js/main.js"></script>
+
     </head>
     <body>
         <h1>Hey there, welcome to the page.</h1>
-        <div id="app">
+        <div id="hello">
             <!-- Note to self: When using vue template blocks within jinja 2, use raw blocks -->
             {% raw %}
-            {{message}}
+            <!--{{message}}-->
+
+            <ul id="app">
+                <li v-for="value in values">{{value.data}}</li>
+            </ul>
+
             {% endraw %}
         </div>
+        <script type="text/javascript" src="static/js/main.js"></script>
     </body>
 </html>
