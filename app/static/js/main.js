@@ -1,8 +1,10 @@
-$(document).ready(function(){
+window.onload = function () {
 
-    // Clear username search bar.
-    $('.clear-button').on('click', function(e){
-        $('.linkedin-username').val('');
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello World!'
+      }
     });
-
-});
+    console.log(app.message);
+}
