@@ -1,0 +1,12 @@
+<% extends "base.html" %>
+
+<% block content %>
+<h1>New York City</h1>
+<h2>Welcome to the big apple</h2>
+
+<div id="app">
+    <p>Current Weather: {{weather.f}}f</p>
+    <p>Transit: {{ transit }}</p>
+</div>
+<script type="text/javascript" src="%% url_for('static', filename='js/main.js') %%"></script>
+<% endblock %>

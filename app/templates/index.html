@@ -1,24 +1,9 @@
-<html>
-    <head>
-        <title>Shitty.in</title>
-        <link rel="stylesheet" type="text/css" href="static/css/main.css">
-        <script type="text/javascript" src="static/vendor/jquery-3.0.0.min.js"></script>
-        <script type="text/javascript" src="static/vendor/vue.js"></script>
+<% extends "base.html" %>
 
-    </head>
-    <body>
-        <h1>Hey there, welcome to the page.</h1>
-        <div id="hello">
-            <!-- Note to self: When using vue template blocks within jinja 2, use raw blocks -->
-            {% raw %}
-            <!--{{message}}-->
+<% block content %>
+<h1>Welcome to Shitty Index.</h1>
+<h2>Choose a city below to begin.</h2>
 
-            <ul id="app">
-                <li v-for="value in values">{{value.data}}</li>
-            </ul>
+<a href="%% url_for('nyc') %%">NYC</a>
 
-            {% endraw %}
-        </div>
-        <script type="text/javascript" src="static/js/main.js"></script>
-    </body>
-</html>
+<% endblock %>
