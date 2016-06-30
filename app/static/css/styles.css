@@ -66,6 +66,12 @@ div.background-header-box {
     margin-top: 20px;
 }
 
+.shadow {
+  -moz-box-shadow:    2px 2px 4px 5px #ccc;
+  -webkit-box-shadow: 2px 2px 4px 5px #ccc;
+  box-shadow:         2px 2px 4px 5px #ccc;
+}
+
 /* Stat counter */
 .stat-group {
   position: relative;
