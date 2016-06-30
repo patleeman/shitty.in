@@ -1,16 +1,19 @@
 <% extends "base.html" %>
 
 <% block content %>
-<h1>New York Shitty</h1>
-<h2>Welcome to the big crapple</h2>
+<h1>New York Shitty &#x1f4a9;</h1>
 
 <div id="app">
-    <h2>The current weather's shittiness index is:</h2>
-    <p>{{weather.temp.f}}f</p>
-    <h2>MTA Transit's current shittiness index is:</h2>
-    <p>Overall: {{ transit.total }}% chance of a shitty commute</p>
+    <h2>Welcome to The Big Crapple.  There is a {{overall}}% chance you'll have a shitty day.</h2>
+
+    <h2>There is a {{weather.score}}% chance of shitty weather.</h2>
+    <p>(Its currently {{weather.temp.f}} &deg;F)</p>
+
+    <h2>There is a {{ transit.total }}% chance that you'll have a shitty commute if you leave now.</h2>
+
+    <h3>Here's how shitty each MTA service is currently (% chance of a shitty commute):</h3>
     <ul id="transit-breakdown">
-        <li v-for="(service, score) in transit">{{ service }}: {{ score }}% chance of a shitty commute</li>
+        <li v-for="(service, score) in transit.lines">{{ service }}: {{ score }}% </li>
     </ul>
 </div>
 <script type="text/javascript" src="%% url_for('static', filename='js/main.js') %%"></script>

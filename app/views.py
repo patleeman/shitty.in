@@ -1,6 +1,6 @@
 from flask import render_template, jsonify, redirect, url_for
 from app import app
-from app.service_hooks import transit
+from app.service_hooks import transit, weather
 
 @app.route('/')
 @app.route('/index')
@@ -18,17 +18,25 @@ def nyc():
 @app.route('/api', methods=['GET'])
 def data_endpoint():
     transit_data = transit.MtaTransit()
+    weather_data = weather.Weather()
+    current_temp_f = weather_data.currently['apparentTemperature']
+    current_temp_c = (current_temp_f - 32) * (5/9)
+
+    overall_score = int((weather_data.score + transit_data.scores["total"]) / 2)
 
     payload = {
         "weather": {
             "temp": {
-                "f": 75,
-                "c": 24
-            }},
+                "f": current_temp_f,
+                "c": current_temp_c
+            },
+            "score": weather_data.score
+        },
         "transit": {
             "scores": transit_data.scores,
             "data": transit_data.data
         },
+        "overall": overall_score
     }
     return jsonify(payload)
 

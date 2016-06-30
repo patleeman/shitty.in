@@ -1,7 +1,6 @@
 
 function get_api_data(){
     var api_data = null;
-
     $.ajax({
         url: "/api",
         datatype: "json",
@@ -16,7 +15,8 @@ var app = new Vue({
   el: '#app',
   data: {
     weather: api_data.weather,
-    transit: api_data.transit.scores
+    transit: api_data.transit.scores,
+    overall: api_data.overall,
   }
 });
 
@@ -25,4 +25,4 @@ var transit = Vue.extend({
   data: {
     transit: api_data.transit.scores
   }
-})
+});

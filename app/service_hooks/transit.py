@@ -93,11 +93,12 @@ class MtaTransit(object):
         # Calculate total score
         score = int(sum([total_scores['DELAYS'], total_scores['PLANNED WORK'], total_scores['SERVICE CHANGE']]) * 100 / sum(total_scores.values()))
         payload = {
-            'total': score
+            'total': score,
+            'lines': {},
         }
 
         # Calculate individual lines
         for service, scores in total_service_scores.items():
-            payload[service] = int(sum([scores['DELAYS'], scores['PLANNED WORK'], scores['SERVICE CHANGE']]) * 100 / sum(scores.values()))
+            payload['lines'][service] = int(sum([scores['DELAYS'], scores['PLANNED WORK'], scores['SERVICE CHANGE']]) * 100 / sum(scores.values()))
 
         return payload
