@@ -17,6 +17,7 @@ class MtaTransit(object):
         self.endpoint = "http://web.mta.info/status/serviceStatus.txt"
         self.data = self._get_data()
         self.scores = self._calculate_score()
+        self.total_score = self._calculate_total_score()
 
     def _get_data(self):
         raw_xml_data = requests.get(self.endpoint).text
@@ -46,28 +47,14 @@ class MtaTransit(object):
         for transit_line in data['line']:
             line = transit_line.get('name')
             status = transit_line.get('status')
-            time = transit_line.get('Time')
-            text = transit_line.get('text')
 
-            transit_payload[line] = {
-                'status': status,
-                'time': time,
-                'text': text
-            }
+            transit_payload[line] = status
+
         return transit_payload
 
+
     def _calculate_score(self):
-
-        total_scores = {
-            "DELAYS": 0,
-            "GOOD SERVICE": 0,
-            "PLANNED WORK": 0,
-            "SERVICE CHANGE": 0,
-            "OTHER": 0
-        }
-
-        # Count up statuses
-        total_service_scores = {}
+        payload = {}
         for service, data in self.data.items():
             service_scores = {
                 "DELAYS": 0,
@@ -79,26 +66,40 @@ class MtaTransit(object):
             if not isinstance(data, dict):
                 continue
 
-            for line, line_data in data.items():
-                status = line_data.get('status')
-                if status in total_scores.keys():
-                    total_scores[status] += 1
+            for line, status in data.items():
+                if status in service_scores.keys():
                     service_scores[status] += 1
                 else:
-                    total_scores['OTHER'] += 1
                     service_scores['OTHER'] += 1
 
-            total_service_scores[service] = service_scores
-
-        # Calculate total score
-        score = int(sum([total_scores['DELAYS'], total_scores['PLANNED WORK'], total_scores['SERVICE CHANGE']]) * 100 / sum(total_scores.values()))
-        payload = {
-            'total': score,
-            'lines': {},
-        }
-
-        # Calculate individual lines
-        for service, scores in total_service_scores.items():
-            payload['lines'][service] = int(sum([scores['DELAYS'], scores['PLANNED WORK'], scores['SERVICE CHANGE']]) * 100 / sum(scores.values()))
+            payload[service] = service_scores
+            payload[service]['TOTAL_SCORE'] = int(sum([
+                (.70 * service_scores['DELAYS']),
+                (.15 * service_scores['PLANNED WORK']),
+                (.15 * service_scores['SERVICE CHANGE'])
+            ]) * 100 / sum(service_scores.values()))
 
         return payload
+
+    def _calculate_total_score(self):
+        aggregated = {
+                "DELAYS": 0,
+                "GOOD SERVICE": 0,
+                "PLANNED WORK": 0,
+                "SERVICE CHANGE": 0,
+                "OTHER": 0
+            }
+        for line, data in self.scores.items():
+            for key, inst_count in data.items():
+                if key not in aggregated.keys():
+                    continue
+
+                aggregated[key] += inst_count
+
+        score = int(sum([
+                (.70 * aggregated['DELAYS']),
+                (.15 * aggregated['PLANNED WORK']),
+                (.15 * aggregated['SERVICE CHANGE'])
+            ]) * 100 / sum(aggregated.values()))
+
+        return score

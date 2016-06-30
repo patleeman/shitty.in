@@ -1,20 +1,34 @@
 <% extends "base.html" %>
 
 <% block content %>
-<h1>New York Shitty &#x1f4a9;</h1>
-
-<div id="app">
-    <h2>Welcome to The Big Crapple.  There is a {{overall}}% chance you'll have a shitty day.</h2>
-
-    <h2>There is a {{weather.score}}% chance of shitty weather.</h2>
-    <p>(Its currently {{weather.temp.f}} &deg;F)</p>
-
-    <h2>There is a {{ transit.total }}% chance that you'll have a shitty commute if you leave now.</h2>
-
-    <h3>Here's how shitty each MTA service is currently (% chance of a shitty commute):</h3>
-    <ul id="transit-breakdown">
-        <li v-for="(service, score) in transit.lines">{{ service }}: {{ score }}% </li>
-    </ul>
+<div class="row">
+    <h1>New York Shitty &#x1f4a9;</h1>
 </div>
+<div class="row">
+    <div id="app">
+        <div class="col-lg-12">
+            <h2>Welcome to The Big Crapple.  There is a {{overall}}% chance you'll have a shitty day.</h2>
+        </div>
+        <div class="col-lg-offset-2 col-lg-4">
+            <h2>Weather</h2>
+            <h2>{{weather_scores.TOTAL}}%</h2>
+            <p>chance of shitty weather.</p>
+
+            <p>Its currently {{weather_data.TEMP}} &deg;F with a humidity of {{weather_data.HUMIDITY}} and a {{weather_data.PRECIP_PROBABILITY}}% chance of precipitation</p>
+
+        </div>
+        <div class="col-lg-4">
+            <h2>Transit </h2>
+            <h2>{{ transit.total }}% </h2>
+            <h2>chance that you'll have a shitty commute if you leave now.</h2>
+
+            <h3>Here's how shitty each MTA service is currently (% chance of a shitty commute):</h3>
+            <ul id="transit-breakdown">
+                <li v-for="(service, score) in transit.lines">{{ service }}: {{ score }}% </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript" src="%% url_for('static', filename='js/main.js') %%"></script>
 <% endblock %>
