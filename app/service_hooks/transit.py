@@ -27,10 +27,10 @@ class MtaTransit(object):
         if int(response_code) == 0:
             payload = {
                 'Subway': self._parse_transit(data['service']['subway']),
-                'Bus': self._parse_transit(data['service']['bus']),
-                'Bridges/Tunnels': self._parse_transit(data['service']['BT']),
+                'MTA Buses': self._parse_transit(data['service']['bus']),
+                'Bridges & Tunnels': self._parse_transit(data['service']['BT']),
                 'LIRR': self._parse_transit(data['service']['LIRR']),
-                'MetroNorth': self._parse_transit(data['service']['MetroNorth']),
+                'Metro North': self._parse_transit(data['service']['MetroNorth']),
                 'timestamp': datetime.datetime.strptime(data['service']['timestamp'], "%m/%d/%Y %I:%M:%S %p")
             }
 

@@ -2,30 +2,46 @@
 
 <% block content %>
 <div class="row">
-    <h1>New York Shitty &#x1f4a9;</h1>
-</div>
-<div class="row">
     <div id="app">
         <div class="col-lg-12">
-            <h2>Welcome to The Big Crapple.  There is a {{overall}}% chance you'll have a shitty day.</h2>
+            <div class="background-header-box">
+                <h1 class="city center">New York City</h1>
+                <h2 class="center">There is a <strong>{{api.overall}}%</strong> chance you'll have a shitty day.</h2>
+            </div>
         </div>
-        <div class="col-lg-offset-2 col-lg-4">
-            <h2>Weather</h2>
-            <h2>{{weather_scores.TOTAL}}%</h2>
-            <p>chance of shitty weather.</p>
-
-            <p>Its currently {{weather_data.TEMP}} &deg;F with a humidity of {{weather_data.HUMIDITY}} and a {{weather_data.PRECIP_PROBABILITY}}% chance of precipitation</p>
-
+        <div class="col-lg-offset-2 col-lg-4 col-lg-offset-2">
+            <div class="background-box">
+                <div class="main-stat">
+                    <h2 class="center">Weather</h2>
+                    <div class="stat-group">
+                      <div class="per">{{api.weather_scores.TOTAL}}%</div>
+                      <svg class="svg"></svg>
+                    </div>
+                    <p class="center">chance of shitty weather.</p>
+                </div>
+                <div class="main-stat-breakdown">
+                    <p class="center">Temp: {{api.weather_data.TEMP}} &deg;F</p>
+                    <p class="center">Humidity: {{api.weather_data.HUMIDITY}}</p>
+                    <p class="center">Precipitation: {{api.weather_data.PRECIP_PROBABILITY}}% chance</p>
+                </div>
+            </div>
         </div>
         <div class="col-lg-4">
-            <h2>Transit </h2>
-            <h2>{{ transit.total }}% </h2>
-            <h2>chance that you'll have a shitty commute if you leave now.</h2>
-
-            <h3>Here's how shitty each MTA service is currently (% chance of a shitty commute):</h3>
-            <ul id="transit-breakdown">
-                <li v-for="(service, score) in transit.lines">{{ service }}: {{ score }}% </li>
-            </ul>
+            <div class="background-box">
+                <div class="main-stat">
+                    <h2 class="center">Transit </h2>
+                    <div class="stat-group">
+                      <div class="per">{{ api.transit_score }}%</div>
+                      <svg class="svg"></svg>
+                    </div>
+                    <p class="center">chance of a shitty commute.</p>
+                </div>
+                <div class="main-stat-breakdown">
+                    <div v-for="(service, score) in api.transit" id="transit-breakdown" class="center">
+                        <p class="center">{{ service }}: {{ score.TOTAL_SCORE }}% </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -1,0 +1,160 @@
+/* color palette: http://www.colourlovers.com/palette/146458/Soho_New_York */
+
+.navbar-brand {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin:0 auto;
+}
+.navbar-toggle {
+    z-index:3;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+  background-color: #F8F4FF;
+  color: #252525;
+}
+
+h1 {
+  font-size: 3em;
+  color: #252525;
+}
+
+h2 {
+  font-size: 2em;
+  color: #252525;
+}
+p, li {
+  font-size: 1.25em;
+}
+
+.city-link {
+  padding: 30px;
+  text-align: center;
+}
+
+.center {
+  text-align: center;
+}
+
+div.background-box {
+    min-height: 500px;
+    margin: 40px;
+    padding: 20px;
+    opacity: 0.8;
+    border: 1px solid #252525;
+}
+
+div.background-header-box {
+    margin: 30px;
+    padding: 10px;
+    opacity: 0.8;
+    border: 1px solid #252525;
+}
+
+#transit-breakdown li{
+  list-style: none;
+  padding-left: 1.2em;
+}
+
+.main-stat-breakdown {
+    margin-top: 20px;
+}
+
+/* Stat counter */
+.stat-group {
+  position: relative;
+  display: inline-block;
+  height: 150px;
+  width: 150px;
+  display: block;
+  margin: 0 auto;
+}
+
+.stat-group .per {
+  position: absolute;
+  height: 0;
+  line-height: 0;
+  width: 100%;
+  top: 50%;
+  font-size: 3em;
+  text-align: center;
+  color: #D84813;
+  opacity: 0.8;
+}
+
+/* Custom navbar colors http://work.smarchal.com/twbscolor/ */
+.navbar-default {
+  background-color: #252525;
+  border-color: #322d3a;
+}
+.navbar-default .navbar-brand {
+  color: #f8f4ff;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #f8f4ff;
+}
+.navbar-default .navbar-text {
+  color: #f8f4ff;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #f8f4ff;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #f8f4ff;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #f8f4ff;
+  background-color: #322d3a;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #f8f4ff;
+  background-color: #322d3a;
+}
+.navbar-default .navbar-toggle {
+  border-color: #322d3a;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #322d3a;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #f8f4ff;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #f8f4ff;
+}
+.navbar-default .navbar-link {
+  color: #f8f4ff;
+}
+.navbar-default .navbar-link:hover {
+  color: #f8f4ff;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #f8f4ff;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #f8f4ff;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #f8f4ff;
+    background-color: #322d3a;
+  }
+}

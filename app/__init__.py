@@ -1,7 +1,7 @@
 from flask import Flask
 
 
-# Need to change Flask Jinja 2 delimiters so vue.js works without modification.
+# Need to change Flask Jinja 2 delimiters so app.js works without modification.
 # https://gist.github.com/lost-theory/3925738
 class CustomFlask(Flask):
     jinja_options = Flask.jinja_options.copy()
