@@ -28,7 +28,7 @@ def data_endpoint():
         "transit_score": transit_data.total_score,
         "overall": overall_score,
     }
-    print(payload)
+
     return jsonify(payload)
 
 @app.route('/dex/about')
