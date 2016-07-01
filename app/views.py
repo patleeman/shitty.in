@@ -31,3 +31,6 @@ def data_endpoint():
     print(payload)
     return jsonify(payload)
 
+@app.route('/dex/about')
+def about():
+    return render_template('about.html')
