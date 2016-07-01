@@ -10,7 +10,6 @@ function get_api_data(){
 }
 
 api_data = get_api_data();
-console.log(api_data)
 var app = new Vue({
   el: '#app',
   data: {
