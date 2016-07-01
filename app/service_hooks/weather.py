@@ -1,7 +1,7 @@
 import requests
 import json
 import SECRETS
-
+import requests_cache
 
 class Weather(object):
     api_key = SECRETS.FORECASTIO_API_KEY
@@ -11,6 +11,7 @@ class Weather(object):
         self.lng = -73.985131
         self.endpoint = 'https://api.forecast.io/forecast/{api_key}/{lat},{lng}'.format(
             api_key=self.api_key, lat=self.lat, lng=self.lng)
+
         self.weather_data = {}
         self.forecast = self._get_data()
         self.currently = self.forecast['currently']
@@ -18,6 +19,7 @@ class Weather(object):
 
 
     def _get_data(self):
+        requests_cache.install_cache('weather-cache', backend='sqlite', expire_after=1800)
         data = json.loads(requests.get(self.endpoint).text)
         return data
 
@@ -29,8 +31,8 @@ class Weather(object):
         current_humidity = self.currently['humidity']
         current_precip_prob = self.currently['precipProbability']
 
-        self.weather_data['TEMP'] = current_temp
-        self.weather_data['HUMIDITY'] = current_humidity
+        self.weather_data['TEMP'] = int(current_temp)
+        self.weather_data['HUMIDITY'] = int(100 * current_humidity)
         self.weather_data['PRECIP_PROBABILITY'] = current_precip_prob
 
         # Calculate temp score

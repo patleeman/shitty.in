@@ -105,5 +105,6 @@ var stat = function(){
     }
 };
 
+
 //call it on ready
 $(function(){ stat(); });

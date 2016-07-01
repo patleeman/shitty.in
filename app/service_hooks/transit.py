@@ -8,6 +8,7 @@ Requests and parses the NYC MTA's service status.  Then calculates the shitty sc
 
 import xmltodict
 import requests
+import requests_cache
 import datetime
 
 
@@ -20,6 +21,7 @@ class MtaTransit(object):
         self.total_score = self._calculate_total_score()
 
     def _get_data(self):
+        requests_cache.install_cache('transit-cache', backend='sqlite', expire_after=180)
         raw_xml_data = requests.get(self.endpoint).text
         data = xmltodict.parse(raw_xml_data, dict_constructor=dict)
         response_code = data['service']['responsecode']

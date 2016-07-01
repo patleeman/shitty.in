@@ -1,4 +1,11 @@
 /* color palette: http://www.colourlovers.com/palette/146458/Soho_New_York */
+.full {
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../img/bg.jpeg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
 
 .navbar-brand {
     position: absolute;
@@ -6,7 +13,18 @@
     left: 0;
     text-align: center;
     margin:0 auto;
+    font-weight: 700;
+    font-family: 'Bree Serif', serif;
 }
+
+.navbar-left {
+    padding-left: 3%;
+}
+
+.navbar-right {
+    padding-right: 3%;
+}
+
 .navbar-toggle {
     z-index:3;
 }
@@ -20,17 +38,25 @@ body {
   color: #252525;
 }
 
+.index-cta {
+    font-size: 5em;
+}
+
 h1 {
   font-size: 3em;
+  font-family: 'Bree Serif', serif;
   color: #252525;
 }
 
 h2 {
   font-size: 2em;
   color: #252525;
+  font-family: 'Asap', sans-serif;
 }
-p, li {
+
+p, li, a, td {
   font-size: 1.25em;
+  font-family: 'Asap', sans-serif;
 }
 
 .city-link {
@@ -42,7 +68,22 @@ p, li {
   text-align: center;
 }
 
-div.background-box {
+.middle {
+    padding-top: 10%;
+}
+
+.nav{
+  font-family: 'Bree Serif', serif;
+}
+
+.stat-table {
+    border: 0;
+    align: center;
+}
+
+
+div.background-box-index{
+    background-color: #fff;
     min-height: 500px;
     margin: 40px;
     padding: 20px;
@@ -50,7 +91,17 @@ div.background-box {
     border: 1px solid #252525;
 }
 
+div.background-box {
+    background-color: #fff;
+    min-height: 450px;
+    margin: 20px;
+    padding: 20px;
+    opacity: 0.8;
+    border: 1px solid #252525;
+}
+
 div.background-header-box {
+    background-color: #fff;
     margin: 30px;
     padding: 10px;
     opacity: 0.8;
@@ -67,9 +118,9 @@ div.background-header-box {
 }
 
 .shadow {
-  -moz-box-shadow:    2px 2px 4px 5px #ccc;
-  -webkit-box-shadow: 2px 2px 4px 5px #ccc;
-  box-shadow:         2px 2px 4px 5px #ccc;
+  -moz-box-shadow:    1px 1px 2px 2px #ccc;
+  -webkit-box-shadow: 1px 1px 2px 2px #ccc;
+  box-shadow:         1px 1px 2px 2px #ccc;
 }
 
 /* Stat counter */
@@ -93,6 +144,7 @@ div.background-header-box {
   color: #D84813;
   opacity: 0.8;
 }
+
 
 /* Custom navbar colors http://work.smarchal.com/twbscolor/ */
 .navbar-default {

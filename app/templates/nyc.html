@@ -20,9 +20,20 @@
                     <p class="center">chance of shitty weather.</p>
                 </div>
                 <div class="main-stat-breakdown">
-                    <p class="center">Temp: {{api.weather_data.TEMP}} &deg;F</p>
-                    <p class="center">Humidity: {{api.weather_data.HUMIDITY}}</p>
-                    <p class="center">Precipitation: {{api.weather_data.PRECIP_PROBABILITY}}% chance</p>
+                    <table border="0" align="center" width="80%">
+                      <tr>
+                        <td>Temp</td>
+                        <td align="right">{{api.weather_data.TEMP}} &deg;F</td>
+                      </tr>
+                      <tr>
+                        <td>Humidity</td>
+                        <td align="right">{{api.weather_data.HUMIDITY}} %</td>
+                      </tr>
+                      <tr>
+                        <td>Precipitation</td>
+                        <td align="right">{{api.weather_data.PRECIP_PROBABILITY}} %</td>
+                      </tr>
+                    </table>
                 </div>
             </div>
         </div>
@@ -37,8 +48,13 @@
                     <p class="center">chance of a shitty commute.</p>
                 </div>
                 <div class="main-stat-breakdown">
-                    <div v-for="(service, score) in api.transit" id="transit-breakdown" class="center">
-                        <p class="center">{{ service }}: {{ score.TOTAL_SCORE }}% </p>
+                    <div id="transit-breakdown" class="center">
+                        <table border="0" align="center" width="80%">
+                            <tr v-for="(service, score) in api.transit" >
+                                <td align="left">{{ service }}</td>
+                                <td align="right">{{ score.TOTAL_SCORE }} %</td>
+                              </tr>
+                        </table>
                     </div>
                 </div>
             </div>
