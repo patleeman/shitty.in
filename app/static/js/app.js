@@ -1,15 +1,5 @@
-function get_api_data(){
-    var api_data = null;
-    $.ajax({
-        url: "/api",
-        datatype: "json",
-        async: false,
-        success: function(data){api_data = data;},
-        });
-    return api_data;
-}
+var api_data = {};
 
-api_data = get_api_data();
 var app = new Vue({
   el: '#app',
   data: {
@@ -23,3 +13,21 @@ var transit = Vue.extend({
     api: api_data
   }
 });
+
+function get_api_data(){
+    $.ajax({
+        url: "/api",
+        datatype: "json",
+        async: true,
+        success: function(data){
+            app.api=data;
+            transit.api=data;
+            $("#weather-total").html(data.weather_scores.TOTAL);
+            $("#transit-total").html(data.transit_score);
+            stat();
+        },
+        });
+}
+
+//call it on ready
+$(function(){ get_api_data(); });

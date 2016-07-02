@@ -105,6 +105,16 @@ var stat = function(){
     }
 };
 
+$(document).ready(function(){
 
-//call it on ready
-$(function(){ stat(); });
+    $('#city').typed({
+        strings: ['City', 'Shitty'],
+        typeSpeed: 100,
+        backSpeed: 300,
+        startDelay: 2000,
+        backDelay: 1000,
+        callback: function(){
+            $('.typed-cursor').fadeOut(600);
+        },
+    });
+})

@@ -5,8 +5,8 @@
     <div id="app">
         <div class="col-lg-12">
             <div class="background-header-box shadow">
-                <h1 class="city center">New York City</h1>
-                <h2 class="center">There is a <strong>{{api.overall}}%</strong> chance you'll have a shitty day.</h2>
+                <h1 class="city center">New York <span id="city"></span></h1>
+                <h2 class="center">There is a <strong><span class="overall">{{api.overall}}</span>%</strong> chance you'll have a shitty day.</h2>
             </div>
         </div>
         <div class="col-lg-offset-2 col-lg-4 col-lg-offset-2">
@@ -14,7 +14,7 @@
                 <div class="main-stat">
                     <h2 class="center">Weather</h2>
                     <div class="stat-group">
-                      <div class="per">{{api.weather_scores.TOTAL}}%</div>
+                      <div class="per" id="weather-total">0%</div>
                       <svg class="svg"></svg>
                     </div>
                     <p class="center">chance of shitty weather.</p>
@@ -42,7 +42,7 @@
                 <div class="main-stat">
                     <h2 class="center">Transit </h2>
                     <div class="stat-group">
-                      <div class="per">{{ api.transit_score }}%</div>
+                      <div class="per" id="transit-total">0%</div>
                       <svg class="svg"></svg>
                     </div>
                     <p class="center">chance of a shitty commute.</p>
@@ -62,5 +62,4 @@
     </div>
 </div>
 
-<script type="text/javascript" src="%% url_for('static', filename='js/main.js') %%"></script>
 <% endblock %>

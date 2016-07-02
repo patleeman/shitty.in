@@ -1,10 +1,14 @@
 /* color palette: http://www.colourlovers.com/palette/146458/Soho_New_York */
 .full {
-    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../img/bg.jpeg') no-repeat center center fixed;
+    background: url('../img/bg.jpeg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+}
+
+#background-filter {
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .navbar-brand {
@@ -215,4 +219,27 @@ div.background-header-box {
     color: #f8f4ff;
     background-color: #322d3a;
   }
+}
+
+/* Typed.js blinking cursor */
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
 }

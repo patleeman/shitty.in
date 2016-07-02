@@ -43,51 +43,56 @@
 </head>
 
 <body class="full">
-  <!-- Navigation -->
-    <nav class="navbar navbar-default" role="navigation">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="%% url_for('.index') %%">Shitty &#x1f4a9; Index</a>
-      </div>
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-left">
-            <li><a href="/dex/nyc">NYC</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="/dex/about">About</a></li>
+    <div id="background-filter">
+      <!-- Navigation -->
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="%% url_for('.index') %%">Shitty &#x1f4a9; Index</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="/dex/nyc">NYC</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/dex/about">About</a></li>
 
-        </ul>
-      </div>
-    </nav>
+            </ul>
+          </div>
+        </nav>
 
-    <!-- Put your page content here! -->
-    <div class="container">
-        <% block content %>
-        <% endblock %>
+      <!-- jQuery -->
+        <script src="%% url_for('static', filename='vendor/jquery.js') %%"></script>
+
+        <!-- Put your page content here! -->
+        <div class="container">
+            <% block content %>
+            <% endblock %>
+        </div>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="%% url_for('static', filename='vendor/bootstrap.min.js') %%"></script>
+
+        <!-- Vue-->
+        <script type="text/javascript" src="%% url_for('static', filename='vendor/vue.min.js') %%"></script>
+
+        <!-- Snap svg -->
+        <script src="%% url_for('static', filename='vendor/snap.svg-min.js') %%"></script>
+
+        <!-- Typed.js -->
+        <script src="%% url_for('static', filename='vendor/typed.min.js') %%"></script>
+
+        <!-- Application JS -->
+        <script src="%% url_for('static', filename='js/main.js') %%"></script>
+        <script src="%% url_for('static', filename='js/app.js') %%"></script>
+
+        <!-- Hi There -->
+        <!-- Hi, I see you lurking in my code.  Looking to hire a full stack developer?  Click about and reach out! -->
     </div>
-    <!-- jQuery -->
-    <script src="%% url_for('static', filename='vendor/jquery.js') %%"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="%% url_for('static', filename='vendor/bootstrap.min.js') %%"></script>
-
-    <!-- Vue-->
-    <script type="text/javascript" src="%% url_for('static', filename='vendor/vue.min.js') %%"></script>
-
-    <!-- Snap svg -->
-    <script src="%% url_for('static', filename='vendor/snap.svg-min.js') %%"></script>
-
-    <!-- Application JS -->
-    <script src="%% url_for('static', filename='js/main.js') %%"></script>
-    <script src="%% url_for('static', filename='js/app.js') %%"></script>
-
-    <!-- Hi There -->
-    <!-- Hi, I see you lurking in my code.  Looking to hire a full stack developer?  Click about and reach out! -->
-
 </body>
 
 </html>
