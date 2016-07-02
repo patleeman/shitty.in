@@ -43,56 +43,61 @@
 </head>
 
 <body class="full">
-    <div id="background-filter">
-      <!-- Navigation -->
-        <nav class="navbar navbar-default" role="navigation">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="%% url_for('.index') %%">Shitty &#x1f4a9; Index</a>
-          </div>
-          <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-left">
-                <li><a href="/dex/nyc">NYC</a></li>
+  <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="%% url_for('.index') %%">Shitty &#x1f4a9; Index</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-left">
+            <li><a href="/dex/nyc">NYC</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/dex/about">About</a></li>
+        </ul>
+      </div>
+    </nav>
+
+  <!-- jQuery -->
+    <script src="%% url_for('static', filename='vendor/jquery.js') %%"></script>
+
+    <!-- Put your page content here! -->
+    <div class="container">
+        <% block content %>
+        <% endblock %>
+        <div class="social">
+            <ul class="share-buttons">
+                <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fshitty.in&t=" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><img src="/static/img/social-icons/Facebook.png"></a></li>
+                <li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fshitty.in&text=:%20http%3A%2F%2Fshitty.in&via=patleeman" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL)); return false;"><img src="/static/img/social-icons/Twitter.png"></a></li>
+                <li><a href="http://www.reddit.com/submit?url=http%3A%2F%2Fshitty.in&title=" target="_blank" title="Submit to Reddit" onclick="window.open('http://www.reddit.com/submit?url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><img src="/static/img/social-icons/Reddit.png"></a></li>
+                <li><a href="mailto:?subject=&body=:%20http%3A%2F%2Fshitty.in" target="_blank" title="Email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><img src="/static/img/social-icons/Email.png"></a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="/dex/about">About</a></li>
-
-            </ul>
-          </div>
-        </nav>
-
-      <!-- jQuery -->
-        <script src="%% url_for('static', filename='vendor/jquery.js') %%"></script>
-
-        <!-- Put your page content here! -->
-        <div class="container">
-            <% block content %>
-            <% endblock %>
         </div>
-
-        <!-- Bootstrap Core JavaScript -->
-        <script src="%% url_for('static', filename='vendor/bootstrap.min.js') %%"></script>
-
-        <!-- Vue-->
-        <script type="text/javascript" src="%% url_for('static', filename='vendor/vue.min.js') %%"></script>
-
-        <!-- Snap svg -->
-        <script src="%% url_for('static', filename='vendor/snap.svg-min.js') %%"></script>
-
-        <!-- Typed.js -->
-        <script src="%% url_for('static', filename='vendor/typed.min.js') %%"></script>
-
-        <!-- Application JS -->
-        <script src="%% url_for('static', filename='js/main.js') %%"></script>
-        <script src="%% url_for('static', filename='js/app.js') %%"></script>
-
-        <!-- Hi There -->
-        <!-- Hi, I see you lurking in my code.  Looking to hire a full stack developer?  Click about and reach out! -->
     </div>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="%% url_for('static', filename='vendor/bootstrap.min.js') %%"></script>
+
+    <!-- Vue-->
+    <script type="text/javascript" src="%% url_for('static', filename='vendor/vue.min.js') %%"></script>
+
+    <!-- Snap svg -->
+    <script src="%% url_for('static', filename='vendor/snap.svg-min.js') %%"></script>
+
+    <!-- Typed.js -->
+    <script src="%% url_for('static', filename='vendor/typed.min.js') %%"></script>
+
+    <!-- Application JS -->
+    <script src="%% url_for('static', filename='js/main.js') %%"></script>
+    <script src="%% url_for('static', filename='js/app.js') %%"></script>
+
+    <!-- Hi There -->
+    <!-- Hi, I see you lurking in my code.  Looking to hire a full stack developer?  Click about and reach out! -->
 </body>
 
 </html>

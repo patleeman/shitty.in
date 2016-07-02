@@ -1,14 +1,10 @@
 /* color palette: http://www.colourlovers.com/palette/146458/Soho_New_York */
 .full {
-    background: url('../img/bg.jpeg') no-repeat center center fixed;
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../img/bg.jpeg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-}
-
-#background-filter {
-    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .navbar-brand {
@@ -21,12 +17,9 @@
     font-family: 'Bree Serif', serif;
 }
 
-.navbar-left {
-    padding-left: 3%;
-}
-
-.navbar-right {
-    padding-right: 3%;
+.navbar {
+    padding-left: 1%;
+    padding-right: 1%;
 }
 
 .navbar-toggle {
@@ -59,7 +52,12 @@ h2 {
 }
 
 p, li, a, td {
-  font-size: 1.25em;
+  font-size: 1em;
+  font-family: 'Asap', sans-serif;
+}
+
+.nav-text {
+  font-size: 1em;
   font-family: 'Asap', sans-serif;
 }
 
@@ -83,6 +81,10 @@ p, li, a, td {
 .stat-table {
     border: 0;
     align: center;
+}
+
+.stat-title {
+    font-weight: 700;
 }
 
 
@@ -119,6 +121,7 @@ div.background-header-box {
 
 .main-stat-breakdown {
     margin-top: 20px;
+    font-size: 1.5em;
 }
 
 .shadow {
@@ -242,4 +245,30 @@ div.background-header-box {
     0% { opacity:1; }
     50% { opacity:0; }
     100% { opacity:1; }
+}
+
+/* Social sharing icons */
+ul.share-buttons{
+  list-style: none;
+  padding: 0;
+}
+
+ul.share-buttons li{
+  display: inline;
+}
+
+@media (min-width: 1200px){
+    .social {
+        position: fixed;
+        bottom: 1%;
+        left: 1%;
+    }
+}
+
+@media (max-width: 1199px){
+    .social {
+        position: static;
+        display: table;
+        margin: 0 auto;
+    }
 }
