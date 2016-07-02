@@ -19,7 +19,7 @@ class Weather(object):
 
 
     def _get_data(self):
-        requests_cache.install_cache('weather-cache', backend='sqlite', expire_after=1800)
+        requests_cache.install_cache('weather-cache', backend='sqlite', expire_after=900)
         data = json.loads(requests.get(self.endpoint).text)
         return data
 
