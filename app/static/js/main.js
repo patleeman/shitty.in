@@ -117,4 +117,19 @@ $(document).ready(function(){
             $('.typed-cursor').fadeOut(600);
         },
     });
+
+    $(document).on('click', '.expand', function(){
+        var view_status = $(this).siblings().css('display')
+
+        if ( view_status === "none"){
+            $(this).siblings().slideDown(0);
+            $(this).children().children(".expand-icon").html("-")
+        } else {
+            $(this).siblings().slideUp(0);
+            $(this).children().children(".expand-icon").html("+")
+
+        }
+        console.log(view_status);
+
+    });
 })
