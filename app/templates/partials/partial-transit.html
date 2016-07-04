@@ -11,12 +11,13 @@
         <div class="main-stat-breakdown center">
             <table id="transit-breakdown" border="0" align="center" v-for="(service, data) in api.transit.breakdown">
                 <tr class="main-breakdown expand">
-                    <td align="left" width="10px"><span class="expand-icon">+</span></td>
+                    <td align="left" width="15px"><span class="expand-icon">+</span></td>
                     <td align="left">{{ data.name }}</td>
                     <td align="right">{{ data.score }} %</td>
                 </tr>
                 <tr v-for="(line, status) in data.status" class="sub-breakdown">
-                    <td colspan="2" align="left">{{line}}</td>
+                    <td align="left"></td>
+                    <td align="left">{{line}}</td>
                     <td align="right">{{status}}</td>
                 </tr>
             </table>

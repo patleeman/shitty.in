@@ -11,16 +11,30 @@
         <div class="main-stat-breakdown">
             <table border="0" align="center" width="80%">
                 <tr>
-                    <td>Temp</td>
+                    <td>Currently {{api.weather.current_summary | lowercase}} </td>
                     <td align="right">{{api.weather.temp.value}} &deg;F</td>
+                </tr>
+                <tr>
+                    <td>High/Low</td>
+                    <td align="right">{{api.weather.high_temp.value}} &deg;F / {{api.weather.low_temp.value}} &deg;F</td>
                 </tr>
                 <tr>
                     <td>Humidity</td>
                     <td align="right">{{api.weather.humidity.value}} %</td>
                 </tr>
                 <tr>
-                    <td>Precipitation</td>
-                    <td align="right">{{api.weather.precip.value}} %</td>
+                    <template v-if="api.weather.precip.type">
+                        <td>Chance of {{api.weather.precip.type}}</td>
+                        <td align="right">{{api.weather.precip.value}} %</td>
+                    </template>
+                    <template v-else>
+                        <td>Precipitation</td>
+                        <td None!</td>
+                    </template>
+                </tr>
+                <tr>
+                    <td>Today</td>
+                    <td align="right">{{api.weather.today_summary}}</td>
                 </tr>
             </table>
         </div>

@@ -120,8 +120,8 @@ div.background-box {
 
 div.background-header-box {
     background-color: #FDFDFD;
-    margin: 20px;
-    padding: 5px;
+    margin: 10px;
+    padding: 10px;
     opacity: 0.8;
     border: 1px solid #252525;
 }
@@ -273,15 +273,17 @@ ul.share-buttons{
   padding: 0;
 }
 
-ul.share-buttons li{
-  display: inline;
-}
 
 @media (min-width: 1200px){
     .social {
         position: fixed;
         bottom: 1%;
         left: 1%;
+    }
+
+    ul.share-buttons li{
+      display: block;
+      margin-top: 3px;
     }
 }
 
@@ -290,5 +292,11 @@ ul.share-buttons li{
         position: static;
         display: table;
         margin: 0 auto;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    ul.share-buttons li{
+      display: inline;
     }
 }
