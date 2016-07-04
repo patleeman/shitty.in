@@ -151,3 +151,4 @@ ENV/
 .idea/
 
 SECRETS.py
+*.sqlite

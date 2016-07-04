@@ -9,56 +9,11 @@
                 <h2 class="center">There is a <strong><span class="overall">{{api.overall}}</span>%</strong> chance you'll have a shitty day.</h2>
             </div>
         </div>
-        <div class="col-lg-offset-2 col-lg-4 col-lg-offset-2">
-            <div class="background-box shadow">
-                <div class="main-stat">
-                    <h2 class="center stat-title">Weather</h2>
-                    <div class="stat-group">
-                      <div class="per" id="weather-total">0%</div>
-                      <svg class="svg"></svg>
-                    </div>
-                    <p class="center stat-title">chance of shitty weather.</p>
-                </div>
-                <div class="main-stat-breakdown">
-                    <table border="0" align="center" width="80%">
-                      <tr>
-                        <td>Temp</td>
-                        <td align="right">{{api.weather_data.TEMP}} &deg;F</td>
-                      </tr>
-                      <tr>
-                        <td>Humidity</td>
-                        <td align="right">{{api.weather_data.HUMIDITY}} %</td>
-                      </tr>
-                      <tr>
-                        <td>Precipitation</td>
-                        <td align="right">{{api.weather_data.PRECIP_PROBABILITY}} %</td>
-                      </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="background-box shadow">
-                <div class="main-stat">
-                    <h2 class="center stat-title">Transit </h2>
-                    <div class="stat-group">
-                      <div class="per" id="transit-total">0%</div>
-                      <svg class="svg"></svg>
-                    </div>
-                    <p class="center stat-title">chance of a shitty commute.</p>
-                </div>
-                <div class="main-stat-breakdown">
-                    <div id="transit-breakdown" class="center">
-                        <table border="0" align="center" width="80%">
-                            <tr v-for="(service, score) in api.transit" >
-                                <td align="left">{{ service }}</td>
-                                <td align="right">{{ score.TOTAL_SCORE }} %</td>
-                              </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+        <% include "partials/partial-weather.html" %>
+
+        <% include "partials/partial-transit.html" %>
+
     </div>
 </div>
 

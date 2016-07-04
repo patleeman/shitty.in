@@ -1,0 +1,28 @@
+<div class="col-lg-offset-2 col-lg-4 col-lg-offset-2">
+    <div class="background-box shadow">
+        <div class="main-stat">
+            <h2 class="center stat-title">Weather</h2>
+            <div class="stat-group">
+              <div class="per" id="weather-total">0%</div>
+              <svg class="svg"></svg>
+            </div>
+            <p class="center stat-title">chance of shitty weather.</p>
+        </div>
+        <div class="main-stat-breakdown">
+            <table border="0" align="center" width="80%">
+                <tr>
+                    <td>Temp</td>
+                    <td align="right">{{api.weather.temp.value}} &deg;F</td>
+                </tr>
+                <tr>
+                    <td>Humidity</td>
+                    <td align="right">{{api.weather.humidity.value}} %</td>
+                </tr>
+                <tr>
+                    <td>Precipitation</td>
+                    <td align="right">{{api.weather.precip.value}} %</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

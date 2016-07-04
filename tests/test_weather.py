@@ -1,5 +1,5 @@
 import unittest
-from app.service_hooks import weather
+from app.hooks import weather
 from pprint import pprint
 
 

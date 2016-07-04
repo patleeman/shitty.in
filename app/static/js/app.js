@@ -22,8 +22,8 @@ function get_api_data(){
         success: function(data){
             app.api=data;
             transit.api=data;
-            $("#weather-total").html(data.weather_scores.TOTAL);
-            $("#transit-total").html(data.transit_score);
+            $("#weather-total").html(data.weather.score);
+            $("#transit-total").html(data.transit.score);
             stat();
         },
         });
