@@ -11,8 +11,12 @@
         <div class="main-stat-breakdown">
             <table border="0" align="center" width="80%">
                 <tr>
-                    <td>Currently {{api.weather.current_summary | lowercase}} </td>
+                    <td>Current Temp</td>
                     <td align="right">{{api.weather.temp.value}} &deg;F</td>
+                </tr>
+                <tr>
+                    <td>Current Weather</td>
+                    <td align="right">{{api.weather.current_summary}}</td>
                 </tr>
                 <tr>
                     <td>High/Low</td>
@@ -33,8 +37,7 @@
                     </template>
                 </tr>
                 <tr>
-                    <td>Today</td>
-                    <td align="right">{{api.weather.today_summary}}</td>
+                    <td align="center" colspan="2">{{api.weather.today_summary}}</td>
                 </tr>
             </table>
         </div>
