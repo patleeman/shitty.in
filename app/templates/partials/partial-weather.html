@@ -9,10 +9,17 @@
             <p class="center stat-title">chance of shitty weather.</p>
         </div>
         <div class="main-stat-breakdown">
+            <p>
+                It's {{api.weather.current_summary | lowercase}} right now
+
+                with a chance of {{}}
+
+                {{api.weather.today_summary }}
+            </p>
             <table border="0" align="center" width="80%">
                 <tr>
-                    <td>Currently {{api.weather.current_summary | lowercase}} </td>
-                    <td align="right">{{api.weather.temp.value}} &deg;F</td>
+                    <td>Currently</td>
+                    <td align="right"> {{api.weather.temp.value}} &deg;F</td>
                 </tr>
                 <tr>
                     <td>High/Low</td>
@@ -31,10 +38,6 @@
                         <td>Precipitation</td>
                         <td None!</td>
                     </template>
-                </tr>
-                <tr>
-                    <td>Today</td>
-                    <td align="right">{{api.weather.today_summary}}</td>
                 </tr>
             </table>
         </div>
